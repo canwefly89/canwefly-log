@@ -36,6 +36,9 @@ series:
 
 핵심은 **타임스탬프를 끝까지 보존하는 것.** 청크에 시간 정보가 같이 붙어 있어야 답변에서 영상 특정 구간을 가리킬 수 있다. STT 출력의 segment 단위 타임스탬프를 청킹 단계까지 끌고 가는 구조를 잡았다.
 
+![24분짜리 뉴스 영상에 대한 QA 답변 화면 — 답변 첫머리에 [01:10] 타임스탬프가 찍혀 있고, 우측 패널에는 근거 타임스탬프 목록이, 중앙 전사 세그먼트에는 STT 텍스트와 Vision 설명(📷)이 각 타임레인지 옆에 나란히 붙어 있다](/static/sprint3-multimodal/qa-answer-timestamps.png)
+*답변 `[01:10] … 30대 젊은이들입니다.` → 같은 타임스탬프가 전사 세그먼트에서 그대로 하이라이트되는 구조. 우측엔 근거 타임스탬프 목록, 중앙 전사에는 STT·Vision(📷)이 한 세그먼트에 같이 묶여 있다.*
+
 <br>
 
 ## 모델 교체 3건 — 한국어 미지원 모델 하나가 파이프라인 전체를 무력화한다
@@ -277,6 +280,9 @@ threshold 이상으로 최소 품질 보장하되, 부족하면 강제로 상위
 | 평가 LLM | gemma3 (변동 큼) | gpt-4o ✅ | **GPT-4o** ✅ |
 
 → `PROVIDER=deployment` 신설. 기존 `local`·`openai` 분기는 **한 줄도 변경하지 않고**, `if PROVIDER == "deployment":`를 기존 분기 앞에 추가. 로컬 개발 환경 동작은 100% 보존.
+
+![Experiment Lab 상단의 Provider 배너 — Chat: gpt-4o / Embedding: bge-m3 / Vision: gemini-2.5-flash / STT: groq whisper-large-v3-turbo](/static/sprint3-multimodal/experiment-lab-deployment.png)
+*`PROVIDER=deployment`를 켜면 모듈별로 골라 쓴 모델 조합이 상단에 그대로 노출된다. "이론적 최적 조합"을 한 눈에 볼 수 있게 배너로 박아둔 결과.*
 
 배포 후 비용: **영상 10개 처리 시 ~$1.41/month** (STT/Vision/Embedding은 모두 무료 티어, GPT-4o만 유료). 실험으로 확인한 "유료 가치"가 분명한 영역에만 비용을 쓰는 셈.
 

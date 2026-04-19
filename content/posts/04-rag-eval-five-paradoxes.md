@@ -361,6 +361,9 @@ Precision은 떨어졌는데, **답변 기준 지표(Relevance, Groundedness, Fa
 
 **같은 설정인데 점수가 거의 반반씩 뒤집혔다.** 누구 실험이 "진짜"인가?
 
+![A/B 비교 UI — 같은 질문을 두 가지 설정으로 나란히 실행한 결과 화면](/static/rag-experiment/experiment-ab-result.png)
+*A/B 비교를 한 화면에 띄워 놓고 보기 시작하자, 1회 실행의 결과가 얼마나 자주 뒤집히는지가 눈에 들어왔다.*
+
 ### 원인 — LLM 비결정성 × 소규모 데이터셋
 
 두 가지가 곱해진 결과였다.

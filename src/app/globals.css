@@ -276,7 +276,8 @@
   margin: 2rem auto;
   border-radius: 8px;
   border: 1px solid var(--color-hairline);
-  max-width: min(100%, 500px);
+  width: 100%;
+  max-width: 100%;
   height: auto;
 }
 .prose figure img {

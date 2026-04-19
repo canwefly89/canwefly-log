@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 
 import { getAllPosts } from "@/lib/posts";
 import { PostCard } from "@/components/post-card";
-import { formatDate } from "@/lib/date";
 import { absUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -19,30 +18,18 @@ export const metadata: Metadata = {
 
 export default function PostsIndex() {
   const posts = getAllPosts();
-  const latestDate = posts[0]?.date ?? new Date().toISOString();
 
   return (
-    <div className="mx-auto max-w-3xl px-6 pt-14 pb-8 sm:pt-20">
-      <div className="running-folio mb-10 flex items-baseline justify-between">
-        <span>Index</span>
-        <span>
-          {posts.length} Pieces · Updated {formatDate(latestDate)}
-        </span>
-      </div>
-
+    <div className="mx-auto max-w-3xl px-6 pt-14 pb-8 sm:pt-24">
       <header className="mb-12 border-b border-[color:var(--color-hairline)] pb-10">
-        <p className="running-folio text-[color:var(--color-accent)]">
-          All Writings
+        <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
+          All posts
         </p>
-        <h1 className="mt-3 font-serif text-[2.5rem] italic leading-[1.08] tracking-tight text-[color:var(--color-ink)] sm:text-[3rem]">
+        <h1 className="mt-3 text-[2rem] font-bold leading-[1.2] tracking-tight text-[color:var(--color-ink)] sm:text-[2.5rem]">
           모든 글
         </h1>
-        <p className="mt-4 max-w-xl leading-[1.8] text-[color:var(--color-muted)]">
-          가장 최근 글부터 순서대로. 연재는{" "}
-          <span className="text-[color:var(--color-accent)]">
-            테라코타 라벨
-          </span>
-          로 표시됩니다.
+        <p className="mt-4 max-w-xl leading-[1.85] text-[color:var(--color-muted)]">
+          총 {posts.length}편. 가장 최근 글부터 순서대로 정렬됩니다.
         </p>
       </header>
 

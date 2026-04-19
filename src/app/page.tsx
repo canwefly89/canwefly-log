@@ -43,11 +43,11 @@ export default function Home() {
                   {seriesMeta.name}
                 </p>
                 <h2 className="mt-3 text-2xl font-bold leading-snug tracking-tight text-[color:var(--color-ink)] transition group-hover:text-[color:var(--color-accent)] sm:text-3xl">
-                  PI Lab 8주 과정 정리, 4편
+                  PI Lab 8주 과정 정리, 6편
                 </h2>
                 <p className="mt-4 max-w-xl leading-[1.85] text-[color:var(--color-muted)]">
-                  부트캠프 동기, 런타임 트러블슈팅, RAG 평가의 역설, 실무 구축
-                  플레이북까지 다룬 연재입니다.
+                  부트캠프 시작 동기, RAG·멀티모달 구축 사이클, 평가의 역설,
+                  배포 인프라 함정, 실무 구축 순서까지 다룬 연재입니다.
                 </p>
               </div>
               <span className="hidden shrink-0 items-center gap-1 pt-2 font-mono text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-muted)] transition group-hover:text-[color:var(--color-ink)] sm:inline-flex">

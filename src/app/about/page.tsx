@@ -4,12 +4,12 @@ import { absUrl } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "소개",
   description:
-    "프론트엔드 6년차가 AI 시스템의 속을 들여다본 기록을 남기는 곳.",
+    "프론트엔드 개발자가 AI 엔지니어링을 공부하며 남기는 기록.",
   alternates: { canonical: absUrl("/about") },
   openGraph: {
     title: "소개 · canwefly-log",
     description:
-      "프론트엔드 6년차가 AI 시스템의 속을 들여다본 기록을 남기는 곳.",
+      "프론트엔드 개발자가 AI 엔지니어링을 공부하며 남기는 기록.",
     url: absUrl("/about"),
     type: "profile",
   },
@@ -17,17 +17,12 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-2xl px-6 pt-14 pb-8 sm:pt-20">
-      <div className="running-folio mb-10 flex items-baseline justify-between">
-        <span>Colophon</span>
-        <span>About the Author</span>
-      </div>
-
+    <div className="mx-auto max-w-2xl px-6 pt-14 pb-8 sm:pt-24">
       <header className="mb-12 border-b border-[color:var(--color-hairline)] pb-10">
-        <p className="running-folio text-[color:var(--color-accent)]">
+        <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
           About
         </p>
-        <h1 className="mt-3 font-serif text-[2.5rem] italic leading-[1.08] tracking-tight text-[color:var(--color-ink)] sm:text-[3rem]">
+        <h1 className="mt-3 text-[2rem] font-bold leading-[1.2] tracking-tight text-[color:var(--color-ink)] sm:text-[2.5rem]">
           이곳에 대하여
         </h1>
       </header>

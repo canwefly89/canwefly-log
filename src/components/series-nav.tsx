@@ -39,7 +39,7 @@ export function SeriesNav({
               <ArrowLeft size={10} strokeWidth={1.5} />
               이전 편
             </span>
-            <span className="mt-3 font-serif text-xs italic text-[color:var(--color-faint)]">
+            <span className="mt-3 font-mono text-xs text-[color:var(--color-faint)]">
               Part {prev.series?.order ?? "—"}
             </span>
             <span className="mt-1 text-[0.95rem] font-semibold leading-snug text-[color:var(--color-ink)] transition group-hover:text-[color:var(--color-accent)]">
@@ -59,7 +59,7 @@ export function SeriesNav({
               다음 편
               <ArrowRight size={10} strokeWidth={1.5} />
             </span>
-            <span className="mt-3 font-serif text-xs italic text-[color:var(--color-faint)]">
+            <span className="mt-3 font-mono text-xs text-[color:var(--color-faint)]">
               Part {next.series?.order ?? "—"}
             </span>
             <span className="mt-1 text-[0.95rem] font-semibold leading-snug text-[color:var(--color-ink)] transition group-hover:text-[color:var(--color-accent)]">

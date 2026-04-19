@@ -36,8 +36,10 @@ const posts = defineCollection({
       cover: s.string().nullable().optional(),
       draft: s.boolean().default(false),
       content: s.markdown({
-        gfm: true,
-        remarkPlugins: [remarkGfm],
+        // velite의 내장 gfm 옵션을 끄고, remark-gfm을 직접 옵션과 함께 추가.
+        // singleTilde: false → 한국어 "0.3~0.4" 범위 표기가 strikethrough로 잡히지 않도록
+        gfm: false,
+        remarkPlugins: [[remarkGfm, { singleTilde: false }]],
         rehypePlugins: [
           rehypeSlug,
           [rehypePrettyCode, prettyCodeOptions],

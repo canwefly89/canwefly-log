@@ -77,11 +77,6 @@ export default async function PostPage({
   if (!post) notFound();
 
   const { prev, next } = getAdjacentInSeries(post);
-  const seriesOrdinal = post.series
-    ? `N° ${String(post.series.order).padStart(2, "0")} / ${String(
-        post.series.total,
-      ).padStart(2, "0")}`
-    : null;
 
   // Breadcrumb 구조화 데이터: 홈 → (연재) → 글
   const breadcrumbItems = [
@@ -105,44 +100,40 @@ export default async function PostPage({
         data={buildBreadcrumbSchema(breadcrumbItems)}
       />
       <article className="mx-auto max-w-[46rem] px-6 pt-10 pb-4 sm:pt-16">
-        {/* 러닝 폴리오 — 기사 상단의 편집 지시선 */}
-        <div className="mb-10 flex items-center justify-between running-folio">
+        <div className="mb-10">
           <Link
             href="/posts"
-            className="inline-flex items-center gap-1.5 transition hover:text-[color:var(--color-ink)]"
+            className="inline-flex items-center gap-1.5 text-sm text-[color:var(--color-muted)] transition hover:text-[color:var(--color-ink)]"
           >
-            <ArrowLeft size={10} strokeWidth={1.5} />
-            Index
+            <ArrowLeft size={14} strokeWidth={1.75} />
+            모든 글
           </Link>
-          {seriesOrdinal && post.series && (
-            <Link
-              href={`/series/${post.series.id}`}
-              className="transition hover:text-[color:var(--color-ink)]"
-            >
-              {post.series.name} · {seriesOrdinal}
-            </Link>
-          )}
         </div>
 
         <header className="mb-12 space-y-5 border-b border-[color:var(--color-hairline)] pb-10">
           {post.series && (
-            <p className="running-folio text-[color:var(--color-accent)]">
-              {post.series.name}
-              <span className="ml-3 text-[color:var(--color-faint)]">
-                {post.series.order} / {post.series.total}
-              </span>
-            </p>
+            <Link
+              href={`/series/${post.series.id}`}
+              className="inline-block font-mono text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-muted)] transition hover:text-[color:var(--color-accent)]"
+            >
+              {post.series.name} · {post.series.order}/{post.series.total}
+            </Link>
           )}
 
-          <h1 className="text-[2rem] font-bold leading-[1.2] tracking-tight text-[color:var(--color-ink)] sm:text-[2.5rem] sm:leading-[1.15]">
+          <h1 className="text-[2rem] font-bold leading-[1.25] tracking-tight text-[color:var(--color-ink)] sm:text-[2.5rem] sm:leading-[1.2]">
+            {post.series && (
+              <span className="mr-3 font-mono text-[color:var(--color-faint)]">
+                #{post.series.order}
+              </span>
+            )}
             {post.title}
           </h1>
 
-          <p className="font-serif text-lg italic leading-[1.55] text-[color:var(--color-muted)] sm:text-xl">
+          <p className="text-lg leading-[1.65] text-[color:var(--color-muted)] sm:text-xl">
             {post.description}
           </p>
 
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 pt-2 font-mono text-[11px] uppercase tracking-[0.15em] text-[color:var(--color-faint)]">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 pt-2 font-mono text-[12px] text-[color:var(--color-faint)]">
             <span>by {siteConfig.author.name}</span>
             <span>·</span>
             <time dateTime={post.date}>{formatDateLong(post.date)}</time>
@@ -151,9 +142,7 @@ export default async function PostPage({
             {post.tags?.length ? (
               <>
                 <span>·</span>
-                <span className="normal-case tracking-wide">
-                  {post.tags.map((t) => `#${t}`).join(" ")}
-                </span>
+                <span>{post.tags.map((t) => `#${t}`).join(" ")}</span>
               </>
             ) : null}
           </div>

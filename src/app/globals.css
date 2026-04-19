@@ -191,20 +191,20 @@
   content: none;
 }
 
-/* 블록쿼트 — pull-quote 스타일 */
+/* 블록쿼트 — 차분한 인용 */
 .prose blockquote {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 1.15rem;
-  line-height: 1.6;
-  color: var(--color-ink);
-  border-left-width: 1px;
-  border-left-color: var(--color-accent);
-  padding-left: 1.5rem;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-muted);
+  border-left-width: 2px;
+  border-left-color: var(--color-hairline);
+  padding-left: 1.25rem;
   margin-left: 0;
   margin-right: 0;
-  margin-top: 1.75rem;
-  margin-bottom: 1.75rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
   font-weight: 400;
 }
 .prose blockquote p::before,
@@ -212,14 +212,8 @@
   content: none !important;
 }
 .prose blockquote strong {
-  font-style: normal;
-  font-family: var(--font-sans);
+  color: var(--color-ink);
   font-weight: 700;
-}
-
-/* 한국어 본문 속 blockquote는 서체 대체 시 너무 튀지 않도록 */
-.prose blockquote :lang(ko) {
-  font-family: var(--font-sans);
 }
 
 /* 장식적인 HR */
@@ -274,6 +268,28 @@
   font-family: var(--font-mono);
   font-size: 0.85em;
   color: var(--color-faint);
+}
+
+/* 이미지 — 중앙 정렬 + 둥근 모서리 + 캡션 */
+.prose img {
+  display: block;
+  margin: 2rem auto;
+  border-radius: 8px;
+  border: 1px solid var(--color-hairline);
+  max-width: min(100%, 500px);
+  height: auto;
+}
+.prose figure img {
+  margin-bottom: 0.5rem;
+}
+.prose img + em,
+.prose figcaption {
+  display: block;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  margin-top: -0.5rem;
+  margin-bottom: 2rem;
 }
 
 /* ─────────────────────────────────────────────────────────

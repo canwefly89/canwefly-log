@@ -453,4 +453,4 @@ RAGAS를 도입해서 LLM-as-Judge 의존도를 줄이려고 했다. 근데 **RA
 
 ---
 
-*[PI Lab](https://paaa.ai) 수료 과정에서 정리한 글입니다.*
+*프론트엔드 6년차 개발자가 [PI Lab](https://paaa.ai) AI 엔지니어링 8주 과정을 수료하면서 정리한 기록입니다.*

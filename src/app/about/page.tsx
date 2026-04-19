@@ -1,9 +1,18 @@
 import type { Metadata } from "next";
+import { absUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "소개",
   description:
     "프론트엔드 6년차가 AI 시스템의 속을 들여다본 기록을 남기는 곳.",
+  alternates: { canonical: absUrl("/about") },
+  openGraph: {
+    title: "소개 · canwefly-log",
+    description:
+      "프론트엔드 6년차가 AI 시스템의 속을 들여다본 기록을 남기는 곳.",
+    url: absUrl("/about"),
+    type: "profile",
+  },
 };
 
 export default function AboutPage() {

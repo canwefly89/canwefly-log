@@ -8,6 +8,7 @@ import {
   getSeriesPosts,
 } from "@/lib/posts";
 import { formatDate } from "@/lib/date";
+import { absUrl } from "@/lib/seo";
 
 export async function generateStaticParams() {
   return getAllSeries().map((s) => ({ slug: s.id }));
@@ -21,9 +22,18 @@ export async function generateMetadata({
   const { slug } = await params;
   const series = getSeriesBySlug(slug);
   if (!series) return {};
+  const url = absUrl(`/series/${series.id}`);
+  const description = `${series.name} — ${series.total}편의 연재.`;
   return {
     title: series.name,
-    description: `${series.name} — ${series.total}편의 연재.`,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      title: `${series.name} · canwefly-log`,
+      description,
+      url,
+      type: "website",
+    },
   };
 }
 

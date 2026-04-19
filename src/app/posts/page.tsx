@@ -3,10 +3,18 @@ import type { Metadata } from "next";
 import { getAllPosts } from "@/lib/posts";
 import { PostCard } from "@/components/post-card";
 import { formatDate } from "@/lib/date";
+import { absUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "글",
   description: "canwefly-log의 모든 글 목록.",
+  alternates: { canonical: absUrl("/posts") },
+  openGraph: {
+    title: "글 · canwefly-log",
+    description: "canwefly-log의 모든 글 목록.",
+    url: absUrl("/posts"),
+    type: "website",
+  },
 };
 
 export default function PostsIndex() {

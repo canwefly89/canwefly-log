@@ -4,6 +4,8 @@ import { ArrowUpRight } from "lucide-react";
 import { getAllPosts, getSeriesPosts } from "@/lib/posts";
 import { PostCard } from "@/components/post-card";
 import { formatDate } from "@/lib/date";
+import { JsonLd } from "@/components/json-ld";
+import { buildBlogSchema } from "@/lib/jsonld-builders";
 
 export default function Home() {
   const posts = getAllPosts();
@@ -13,6 +15,7 @@ export default function Home() {
 
   return (
     <div className="mx-auto max-w-3xl px-6 pt-14 pb-8 sm:pt-20">
+      <JsonLd id="ld-blog" data={buildBlogSchema(posts)} />
       {/* Masthead — 잡지 커버의 상단 크레딧 라인 */}
       <div className="running-folio mb-10 flex items-baseline justify-between">
         <span>canwefly-log</span>
